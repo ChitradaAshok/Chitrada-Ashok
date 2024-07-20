@@ -1,0 +1,72 @@
+import random
+
+class DLIPSimulation:
+    def __init__(self):
+        self.dlip_throughput = 0
+        self.dlip_energy = 0
+        self.dlip_bandwidth = 0
+        self.dlip_delay = 0
+        self.dlip_packet_loss = 0
+
+    def run_simulation(self, num_messages):
+        message = "Hello VELTECH! Department of Electronics and Communication Engineering."
+
+        for _ in range(num_messages):
+            # Simulate DLIP
+            dlip_throughput = random.uniform(100, 110)  # Placeholder for DLIP throughput calculation
+            dlip_energy = random.uniform(65, 75)  # Placeholder for DLIP energy consumption calculation
+            dlip_bandwidth = random.uniform(85, 75)  # Placeholder for DLIP bandwidth usage calculation
+            dlip_delay = random.uniform(10, 17)  # Placeholder for DLIP delay calculation
+            dlip_packet_loss = random.uniform(2, 5)  # Placeholder for DLIP packet loss calculation
+
+            # Print the message in the output window
+            print("Received message:", message)
+
+            # You can adjust metrics based on message size, transmission time, etc.
+            self.dlip_throughput += dlip_throughput
+            self.dlip_energy += dlip_energy
+            self.dlip_bandwidth += dlip_bandwidth
+            self.dlip_delay += dlip_delay
+            self.dlip_packet_loss += dlip_packet_loss
+
+    def print_results(self):
+        num_messages = 1000  # Number of messages simulated
+        print("DLIP Metrics:")
+        print("Throughput:", self.dlip_throughput / num_messages)
+        print("Energy:", self.dlip_energy / num_messages)
+        print("Bandwidth:", self.dlip_bandwidth / num_messages)
+        print("Delay:", self.dlip_delay / num_messages)
+        print("Packet Loss:", self.dlip_packet_loss / num_messages)
+
+class ProtocolComparison:
+    def __init__(self):
+        self.mqtt_throughput = 97
+        self.mqtt_energy = 80
+        self.mqtt_bandwidth = 95
+        self.mqtt_delay = 20
+        self.mqtt_packet_loss = 8
+
+        self.coap_throughput = 100
+        self.coap_energy = 92
+        self.coap_bandwidth = 100
+        self.coap_delay = 25
+        self.coap_packet_loss = 10
+
+    def print_matrix(self):
+        print("Protocol Comparison Matrix:")
+        print("Protocol\tThroughput\tEnergy\tBandwidth\tDelay\tPacket Loss")
+        print("MQTT\t\t{}\t\t{}\t{}\t\t{}\t{}".format(self.mqtt_throughput, self.mqtt_energy, self.mqtt_bandwidth, self.mqtt_delay, self.mqtt_packet_loss))
+        print("CoAP\t\t{}\t\t{}\t{}\t\t{}\t{}".format(self.coap_throughput, self.coap_energy, self.coap_bandwidth, self.coap_delay, self.coap_packet_loss))
+
+if __name__ == "__main__":
+    dlip_simulation = DLIPSimulation()
+    dlip_simulation.run_simulation(1000)  # Run DLIP simulation with 1000 messages
+    dlip_simulation.print_results()
+
+    comparison = ProtocolComparison()
+    comparison.print_matrix()
+
+    transmitter_ip = "192.168.1.100"
+    receiver_ip = "192.168.1.200"
+    print("Transmitter IP:", transmitter_ip)
+    print("Receiver IP:", receiver_ip)
